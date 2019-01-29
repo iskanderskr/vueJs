@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Desafio 1</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        <input type="text" v-on:input="atualizar" class="valor1">
+        <input type="text" v-on:input="atualizar" class="valor2">
+        
+        <p>
+            <strong>multiplicado</strong>
+            <span>{{multiplicado}}</span>
+        </p>
+        <p>
+            <strong>somado</strong>
+            <span>{{somado}}</span>
+        </p>
+        <p>
+            <strong>subtraido</strong>
+            <span>{{subtraido}}</span>
+        </p>
+    </div>    
+</body>
+
+    <script>
+        new Vue({
+            el: "#app",
+            data: {
+                valor1: 0,
+                valor2: 0,
+                multiplicado: 0,
+                somado: 0,
+                subtraido: 0,
+            },
+            methods: {
+                atualizar(event){
+                    this.valor1 = parseInt(document.querySelector(".valor1").value) || 0;
+                    this.valor2 = parseInt(document.querySelector(".valor2").value) || 0;
+                    this.multiplicado = this.valor1 * this.valor2;
+                    this.somado = this.valor1 + this.valor2;
+                    this.subtraido = this.valor1 - this.valor2;
+                },
+            }
+        });
+    </script>
+
+    <style>
+        h1{
+            text-transform: uppercase;
+            font-family: sans-serif;
+        }
+    </style>
+</html>

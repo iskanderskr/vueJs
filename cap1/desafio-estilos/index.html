@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>Desafio estilos</title>
+        
+        <link rel="stylesheet" href="styles.css">
+        <script src="https://unpkg.com/vue"></script>
+    </head>
+    <body>
+    <div id="desafio">
+        <!-- 1) Iniciar a execução do efeito usando botão. 
+            O efeito deve alternadamente trocar as classes "destaque" e
+            "encolher" para cada chamada de setInteval. Use a div abaixo
+            com id "efeito" para associar as classes CSS. -->
+        <!-- <div>
+            <button @click="iniciarEfeito">Iniciar Efeito</button>
+            <div id="efeito" :class="{destaque: aplicarC1, encolher: !aplicarC1}"></div>
+        </div> -->
+        <div>
+            <button @click="iniciarEfeito">Iniciar Efeito</button>
+            <div id="efeito" :class="classe1"></div>
+        </div>
+        <hr>
+            
+        <!-- 2) Crie duas classes CSS e associe a div usando a
+            sintaxe de array -->
+        <div :class="[blue, green]">Agora estou com classe</div>
+        <hr>
+                
+        <!-- 3) Deixe o usuário informar o nome da classe (crie classe CSS
+            de exemplo) e associe a div abaixo. -->
+        <div>
+            <input type="text" v-model="classe3">
+            <div class="caixa" :class="classe3"></div>
+        </div>
+        <hr>
+        
+        <!-- 4) Let the user enter a class and enter 
+            true/false for another class (create some example classes) 
+            and attach the classes -->
+        <div>
+            <input type="text" v-model="classe4">
+            <input type="text" @input="setClasse">
+            <div :class="[classe4, {green:verdadeiro}]"></div>
+        </div>
+        <hr>
+                        
+        <!-- 5) Repita 3) mas utilizando estilos ao invés de classes CSS.
+            Associe os estilos a div abaixo  -->
+        <div>
+            <input type="text" v-model="classe5">
+            <div :style="{backgroundColor: classe5}" class="caixa"></div>
+        </div>
+        <hr>
+                            
+        <!-- 6) Create a simple progress bar with setInterval and style bindings. Start it by hitting the below button. -->
+        <div>
+            <button @click="startProgress">Start Progress</button>
+            <div class="progress" :style="{width: largura}"></div>
+        </div>
+    </div>
+                        
+    <script src="app.js"></script>
+    </body>
+</html>
+                    
+                    
+                    
+                    

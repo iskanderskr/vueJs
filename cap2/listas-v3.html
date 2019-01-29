@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Listas 1</title>
+    <script src="https://unpkg.com/vue"></script>
+</head>
+<body>
+    <div id="app">
+        <ol>
+            <li v-for="(cor, i) in cores">{{i}} - {{cor}}</li>
+        </ol>
+        <hr>
+        <template v-for="(cor, i) in cores">
+            <h1>{{cor}}</h1>
+            <p>{{i}}</p>
+        </template>
+        <hr>
+        <ul>
+            <li v-for="pessoa in pessoas">
+                <p v-for="(valor, chave, i) in pessoa">
+                    {{chave}} = {{valor}} ({{i+1}})
+                </p>
+            </li>
+        </ul>
+    </div>
+
+    <script>
+        new Vue({
+            el: "#app",
+            data: {
+                cores: ['vermelho', 'verde', 'amarelo', 'azul'],
+                pessoas: [
+                    { nome: 'Ana', idade: 26, peso: 59 },
+                    { nome: 'Guilherme', idade: 22, peso: 89 },
+                ]
+            }
+        })
+    </script>
+</body>
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Desafio 3</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        <button v-on:click="alerta">Exibir alerta</button>
+        <p>
+            <input type="text" v-on:keydown="atualizar">
+            <strong>{{ valor }}</strong>
+        </p>
+        <p>
+            <input type="text" v-on:keydown.enter="atualizar">
+            <string>{{ valor }}</string>
+        </p>
+    </div>    
+</body>
+
+    <script>
+        new Vue({
+            el: "#app",
+            data: {
+                valor: 0,
+            },
+            methods:{
+                alerta(){
+                    alert("Exibindo alerta");
+                },
+                atualizar(e){
+                    this.valor = e.target.value;
+                }
+            }
+        });
+    </script>
+    <style>
+        body{
+            margin: 0;
+        }
+    </style>
+</html>

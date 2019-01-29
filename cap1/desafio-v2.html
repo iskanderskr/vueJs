@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Desafio 2</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        <input type="text" v-on:input="atualizarNome" class="nome" placeholder="Nome">
+        <input type="text" v-on:input="atualizarIdade" class="idade" placeholder="Idade">
+        
+        <p><strong>Olá {{nome}}, você tem {{idade}}</strong></p>
+        <p>Idade multiplicada = {{multiplicado}}</p>
+        <p>Numero random até idade = {{random}}</p>
+        <p><img v-bind:src="imagem"></p>
+        <p v-html="input"></p>
+    </div>    
+</body>
+
+    <script>
+        new Vue({
+            el: "#app",
+            data: {
+                nome: "desconhecido",
+                idade: 0,
+                multiplicado: 0,
+                random: 0,
+                imagem: "https://pbs.twimg.com/media/DpleS-DWsAA6FAH.jpg",
+                input: "",
+            },
+            methods: {
+                atualizarNome(event){
+                    this.nome = event.target.value;
+                    this.input = '<input type="text" value='+ this.nome +'>';
+                },
+                atualizarIdade(event){
+                    this.idade = event.target.value;
+                    this.multiplicado = this.idade * 3;
+                    this.random = parseInt(Math.random() * this.idade) + 1;
+                }
+            }
+        });
+    </script>
+
+    <style>
+        h1{
+            text-transform: uppercase;
+            font-family: sans-serif;
+        }
+    </style>
+</html>

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Estilo 4</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <style>
+        .caixas{
+            display: flex;
+            justify-content: space-around;
+        }
+        .demo{
+            width: 100px;
+            height: 100px;
+            background: #ccc;
+            transition: all 1s ease;
+        }
+        .c1{
+            background: red;
+        }
+        .c2{
+            background: blue;
+        }
+        .c3{
+            background: green;
+        }
+        .girar{
+            transform: rotate(45deg);
+        }
+    </style>
+</head>
+<body>
+    <div id="app">
+        <div class="caixas">
+            <div class="demo" :style="{backgroundColor: cor}"></div>
+            <div class="demo" :style="[aplicarEstilo, {height: altura + 'px'}]"></div>
+            <div class="demo"></div>
+        </div>
+        <hr>
+        <input type="text" v-model="cor">
+        <input type="text" v-model="largura">
+    </div>    
+</body>
+
+    <script>
+        new Vue({
+            el: "#app",
+            data: {
+                cor: 'red',
+                largura: 50,
+                altura: 150,
+            },
+            computed:{
+                aplicarEstilo(){
+                    return {
+                        backgroundColor: this.cor,
+                        width: this.largura + 'px',
+                    }
+                }
+            }
+        });
+    </script>
+</html>

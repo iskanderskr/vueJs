@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Eventos 5</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        <input type="text" v-on:keyup.enter.alt="atualizar">
+    </div>    
+</body>
+
+    <script>
+        new Vue({
+            el: "#app",
+            data: {
+                x:0,
+                y:0,
+            },
+            methods:{
+                atualizar(e){
+                    alert("teste");
+                }
+            }
+        });
+    </script>
+    <style>
+        body{
+            margin: 0;
+        }
+        p{
+            margin: 0;
+            position: fixed;
+            left: 0;
+            top: 0;
+            width: 100vw;
+            height: 100vh;
+        }
+        a{
+            position: absolute;
+            left: 150px;
+            top: 150px;
+        }
+    </style>
+</html>
