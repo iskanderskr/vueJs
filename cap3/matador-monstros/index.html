@@ -24,7 +24,7 @@
                 <div class="personagem">
                     <strong>{{nome}}</strong>
                     <div class="bar">
-                        <div class="life" :class="classePersonagem" :style="{width: vidaPersonagem + '%'}"></div>
+                        <div class="life" :class="{'amarelo':amareloPersonagem, 'vermelho': vermelhoPersonagem}" :style="{width: vidaPersonagem + '%'}"></div>
                     </div>
                     <span>{{vidaPersonagem}}%</span>
                 </div>
@@ -40,6 +40,7 @@
             <div class="commands">
                 <button v-if="!gameIniciado" @click="iniciar()">Iniciar combate</button>
                 <template v-else>
+                    <div class="status"></div>
                     <button class="atacar" @click="atacar()">Atacar</button>
                     <button class="magia" @click="magia()">Lançar magia</button>
                     <button class="curar" @click="curar()">Se curar</button>
